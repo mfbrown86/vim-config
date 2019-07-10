@@ -1,7 +1,7 @@
 " Show line numbers.
 set number
 
-" Apply supperior color scheme.
+" Apply superior color scheme.
 colorscheme solarized8_dark
 
 " Apply cursor blink.
@@ -30,3 +30,19 @@ set listchars=tab:\|\ ,trail:~,extends:>,precedes:<
 
 " Enable autoindent.
 set autoindent
+
+" Configure directory explorer
+let g:netrw_liststyle = 3
+
+" Configure path to include current and all sub-directories. This makes it
+" easier to open files using 'find'.
+set path+=**
+
+" Disable line wrapping and configure sidescrolling.
+set nowrap
+set sidescroll=1
+set sidescrolloff=5
+
+" Smaller tab size, please
+set tabstop=4
+set shiftwidth=4
