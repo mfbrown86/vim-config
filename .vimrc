@@ -10,7 +10,11 @@ let &t_SI.="\e[5 q"
 let &t_EI.="\e[1 q"
 let &t_te.="\e[0 q"
 
-" Show file name at bottom of window.
+" Fix delay when switching back to normal mode.
+set ttimeoutlen=0
+
+" Show file name at bottom of window. This is required for the lightline
+" plugin to function properly.
 set laststatus=2
 
 " Enable mouse in all modes.
@@ -32,10 +36,13 @@ set listchars=tab:\|\ ,trail:~,extends:>,precedes:<
 set autoindent
 
 " Configure directory explorer
-let g:netrw_liststyle = 3
+let g:netrw_liststyle       = 3     " Tree-style list
+let g:netrw_banner          = 0     " Hide the banner--we don't need to see that
+let g:netrw_browse_split    = 4     " Open files in the previous window
+let g:netrw_winsize         = 25    " Default explorer width
 
 " Configure path to include current and all sub-directories. This makes it
-" easier to open files using 'find'.
+" easier to find and open files.
 set path+=**
 
 " Disable line wrapping and configure sidescrolling.
@@ -46,3 +53,13 @@ set sidescrolloff=5
 " Smaller tab size, please
 set tabstop=4
 set shiftwidth=4
+
+" The lightline plugin obviates the need for the mode indicator. This
+" disables it
+set noshowmode
+
+" Open Netrw on startup.
+"augroup ProjectDrawer
+"	autocmd!
+"	autocmd VimEnter *\(.git/*\)\@<! :Vexplore
+"augroup END
