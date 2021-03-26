@@ -63,3 +63,7 @@ set noshowmode
 "	autocmd!
 "	autocmd VimEnter *\(.git/*\)\@<! :Vexplore
 "augroup END
+
+" It's annoying when I can't backspace
+set backspace=indent,eol,start
+
